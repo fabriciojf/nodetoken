@@ -35,11 +35,17 @@ Generating the Token
 ```javascript
  var jwt = require('jsonwebtoken');
  var user = THE-USER-MODEL
- var token = jwt.sign(user, app.get('appsec'), {});
+ var appsec = "myprotectedkey";
+
+ var token = jwt.sign(user, appsec, {});
 ```
 
 Validating the Token
 ```javascript
+var jwt = require('jsonwebtoken');
+var user = THE-USER-MODEL
+var appsec = "myprotectedkey";
+
 function (req, res, next) {
     var token = req.headers['x-token'];
     if (token) {
