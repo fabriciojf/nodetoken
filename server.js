@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // user base create
-// http://localhost/setup
+// http://localhost:PORT/setup
 app.post('/setup', function (req, res) {
     var me = new user({
         name: "fabricio",
@@ -37,7 +37,7 @@ app.post('/setup', function (req, res) {
 });
 
 // admin routes
-// http://localhost/admin
+// http://localhost:PORT/admin
 app.use('/admin', routes);
 
 // server start

@@ -24,6 +24,43 @@ Run the server
 $ node server.js
 ```
 
+### The WebToken 
+
+NPM Dependency 
+```console
+$ npm install jsonwebtoken --save
+```
+
+Generating the Token
+```javascript
+ var jwt = require('jsonwebtoken');
+ var user = THE-USER-MODEL
+ var token = jwt.sign(user, app.get('appsec'), {});
+```
+
+Validating the Token
+```javascript
+function (req, res, next) {
+    var token = req.headers['x-token'];
+    if (token) {
+        jwt.verify(token, appsec, function (err, decoded) {
+            if (err) {
+                return res.json({ success: false, message: 'Invalid token.' });
+            } else {
+                req.decoded = decoded;
+                next();
+            }
+        }
+    }
+    else {
+       return res.status(403).send({
+            success: false,
+            message: 'No token.'
+        }); 
+    }
+}
+```            
+
 ## Testing with  Postman
 
 Get the postman 
