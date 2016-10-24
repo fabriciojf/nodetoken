@@ -24,6 +24,11 @@ Run the server
 $ node server.js
 ```
 
+Create the basic user
+```http
+http://localhost:PORT/setup
+```
+
 ### The WebToken 
 
 NPM Dependency 
@@ -43,7 +48,6 @@ Generating the Token
 Validating the Token
 ```javascript
 var jwt = require('jsonwebtoken');
-var user = THE-USER-MODEL
 var appsec = "myprotectedkey";
 
 function (req, res, next) {
@@ -76,7 +80,7 @@ Get the postman
 ### Step 1: Generating the token
 
  - Open the Postman
- - Insert the Url with POST method
+ - Insert the Url http://localhost:PORT/admin/auth with POST method
  - In Body tab select ***x-www-form-urlencoded***
  - Insert the params:
  -- key: ***email***  - value: ***fabriciojf@gmail.com***
@@ -87,7 +91,7 @@ Get the postman
 ### Step 2: Access the protected URL
 
  - Open the Postman
- - Insert the Url with GET method
+ - Insert the Url http://localhost:PORT/admin/users with GET method
  - Select the ***Headers*** tab
  - Insert the params:
  -- key: ***x-token*** - value: INSERT-THE-TOKEN
