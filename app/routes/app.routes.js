@@ -9,10 +9,10 @@ var appsec = config.secret.key;
 
 // login route
 // and return token
-// http://localhost:PORT/admin/users
+// http://localhost:PORT/admin/auth
 router.post('/auth', function (req, res) {
 
-    // user database validade
+    // user database validate
     user.findOne({
         email: req.body.email
     }, function (err, user) {
@@ -32,7 +32,7 @@ router.post('/auth', function (req, res) {
                 });
             } else {
 
-                // token generated
+                // token generated expires in 24h
                 var token = jwt.sign(user, appsec, {
                     expiresIn: 1440 
                 });
