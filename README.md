@@ -4,8 +4,8 @@
 Simple example of WebToken generation in Node Js server with MongoDB
 
 ### Requirements
- - Node.js
- - MongoDB
+  - Node.js
+  - MongoDB
 
 ### Install
 Clone or Fork the project: 
@@ -25,8 +25,26 @@ $ node server.js
 ```
 
 Create the basic user
-```http
-http://localhost:PORT/setup
+  - [http://localhost:PORT/setup](http://localhost:PORT/setup)
+
+See and adjust the server.js
+```javascript
+app.post('/setup', function (req, res) {
+    var me = new user({
+        name: "fabricio",
+        email: "fabriciojf@gmail.com",
+        password: "123",
+    });
+
+    me.save(function (err) {
+        if (err) throw err;
+        console.log("User created");
+        res.json({             
+            success: true,
+            "message": "User created" 
+        });
+    });
+});
 ```
 
 ### The WebToken 
@@ -75,27 +93,27 @@ function (req, res, next) {
 
 Get the postman 
 
- - [Postman Official WebSite](https://www.getpostman.com/) 
+  - [Postman Official WebSite](https://www.getpostman.com/) 
 
 ### Step 1: Generating the token
 
- - Open the Postman
- - Insert the Url http://localhost:PORT/admin/auth with POST method
- - In Body tab select ***x-www-form-urlencoded***
- - Insert the params:
- -- key: ***email***  - value: ***fabriciojf@gmail.com***
- -- key: ***password***  - value: ***123***
- - Click:***Send***
- - Copy the token
+  - Open the Postman
+  - Insert the Url [http://localhost:PORT/admin/auth](http://localhost:PORT/admin/auth) with POST method
+  - In Body tab select ***x-www-form-urlencoded***
+  - Insert the params:
+    - key: ***email***  - value: ***fabriciojf@gmail.com***
+    - key: ***password***  - value: ***123***
+  - Click:***Send***
+  - Copy the token
 
 ### Step 2: Access the protected URL
 
- - Open the Postman
- - Insert the Url http://localhost:PORT/admin/users with GET method
- - Select the ***Headers*** tab
- - Insert the params:
- -- key: ***x-token*** - value: INSERT-THE-TOKEN
- - Click: ***Send***
+  - Open the Postman
+  - Insert the Url [http://localhost:PORT/admin/users](http://localhost:PORT/admin/users) with GET method
+  - Select the ***Headers*** tab
+  - Insert the params:
+    - key: ***x-token*** - value: ***INSERT-THE-TOKEN***
+  - Click: ***Send***
 
 ### Author
 [Fabricio Costa](http://fabriciojf.com) 
