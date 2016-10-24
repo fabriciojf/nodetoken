@@ -26,8 +26,13 @@ $ node server.js
 
 ## Testing with  Postman
 
+Get the postman 
+
+ - [Postman Official WebSite](https://www.getpostman.com/) 
+
 ### Step 1: Generating the token
 
+ - Open the Postman
  - Insert the Url with POST method
  - In Body tab select '''''x-www-form-urlencoded'''''
  - Insert the params:
@@ -38,6 +43,7 @@ $ node server.js
 
 ### Step 2: Access the protected URL
 
+ - Open the Postman
  - Insert the Url with GET method
  - Select the '''''Headers''''' tab
  - Insert the params:
