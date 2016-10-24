@@ -34,21 +34,21 @@ Get the postman
 
  - Open the Postman
  - Insert the Url with POST method
- - In Body tab select '''''x-www-form-urlencoded'''''
+ - In Body tab select ***x-www-form-urlencoded***
  - Insert the params:
- -- key: '''''email'''''  - value: '''''fabriciojf@gmail.com'''''
- -- key: '''''password'''''  - value: '''''123'''''
- - Click:'''''Send'''''
+ -- key: ***email***  - value: ***fabriciojf@gmail.com***
+ -- key: ***password***  - value: ***123***
+ - Click:***Send***
  - Copy the token
 
 ### Step 2: Access the protected URL
 
  - Open the Postman
  - Insert the Url with GET method
- - Select the '''''Headers''''' tab
+ - Select the ***Headers*** tab
  - Insert the params:
- -- key: '''''x-token''''' - value: INSERT-THE-TOKEN
- - Click: '''''Send'''''
+ -- key: ***x-token*** - value: INSERT-THE-TOKEN
+ - Click: ***Send***
 
 ### Author
 [Fabricio Costa](http://fabriciojf.com) 
